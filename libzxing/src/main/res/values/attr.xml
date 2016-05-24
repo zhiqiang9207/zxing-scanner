@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="crop">
+        <attr name="marginLeft" format="dimension"/>
+        <attr name="marginTop" format="dimension"/>
+        <attr name="frame_width" format="dimension"/>
+        <attr name="frame_height" format="dimension"/>
+        <attr name="scan_double" format="boolean"/>
+        <attr name="centerInHorizontal" format="boolean"/>
+        <attr name="centerInVertical" format="boolean"/>
+    </declare-styleable>
+</resources>
