@@ -1,4 +1,4 @@
-package com.dg11185.sample;
+package com.dg11185.lib.demo.zxing;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,6 +8,8 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.dg11185.lib.demo.R;
 
 /**
  * Created by Andy on 16/4/14.
@@ -23,6 +25,7 @@ public class ScanPane extends View{
     private int start_x = 0;
     private int start_y = 0;
     private Matrix matrix;
+    private boolean med = true;
 
     public ScanPane(Context context) {
         super(context);
@@ -45,19 +48,24 @@ public class ScanPane extends View{
         width = MeasureSpec.getSize(widthMeasureSpec);
         height = MeasureSpec.getSize(heightMeasureSpec);
         setMeasuredDimension(width, height);
-        float scaleRate = (float)height /(float) scanFrame.getHeight();//缩放的比例
-        matrix.postScale(scaleRate, scaleRate);
-        scanFrame = Bitmap.createBitmap(scanFrame, 0, 0, scanFrame.getWidth(), scanFrame.getHeight(), matrix, true);
-        rayta = Bitmap.createBitmap(rayta, 0, 0, rayta.getWidth(), rayta.getHeight(), matrix, true);
-        sec_w = width - scanFrame.getWidth();
-        start_x = (scanFrame.getWidth() - rayta.getWidth()) / 2;
-        start_y = 20;
-        loc_y = start_y - rayta.getHeight();
+
+        med = true;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if(med){
+            float scaleRate = (float)height /(float) scanFrame.getHeight();//缩放的比例
+            matrix.postScale(scaleRate, scaleRate);
+            scanFrame = Bitmap.createBitmap(scanFrame, 0, 0, scanFrame.getWidth(), scanFrame.getHeight(), matrix, true);
+            rayta = Bitmap.createBitmap(rayta, 0, 0, rayta.getWidth(), rayta.getHeight(), matrix, true);
+            sec_w = width - scanFrame.getWidth();
+            start_x = (scanFrame.getWidth() - rayta.getWidth()) / 2;
+            start_y = 20;
+            loc_y = start_y - rayta.getHeight();
+            med = !med;
+        }
         canvas.drawBitmap(scanFrame, 0, 0, paint);
         canvas.drawBitmap(scanFrame, sec_w, 0, paint);
         canvas.save();

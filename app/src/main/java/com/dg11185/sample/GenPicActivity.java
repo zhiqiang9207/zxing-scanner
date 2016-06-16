@@ -1,4 +1,4 @@
-package com.dg11185.sample;
+package com.dg11185.lib.demo.zxing;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.dg11185.lib.demo.R;
 import com.libzxing.zxing.encoding.EncodingUtils;
 
 public class GenPicActivity extends Activity implements View.OnClickListener {

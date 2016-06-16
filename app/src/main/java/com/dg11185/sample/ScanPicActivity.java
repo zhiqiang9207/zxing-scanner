@@ -1,4 +1,4 @@
-package com.dg11185.sample;
+package com.dg11185.lib.demo.zxing;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dg11185.lib.demo.R;
 import com.google.zxing.Result;
 import com.libzxing.zxing.decode.DecodeBitmap;
 
@@ -89,8 +90,8 @@ public class ScanPicActivity extends Activity implements View.OnClickListener{
     }
 
     public static boolean checkSDCard() {
-        if (android.os.Environment.getExternalStorageState().equals(
-                android.os.Environment.MEDIA_MOUNTED)) {
+        if (Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED)) {
             return true;
         } else {
             return false;
